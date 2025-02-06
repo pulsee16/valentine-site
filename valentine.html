@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffccd5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1, .buttons {
+            transition: opacity 0.5s;
+        }
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #image {
+            display: none;
+            max-width: 80%;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+            margin: 20px auto;
+        }
+        #yes {
+            background-color: green;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #no {
+            background-color: red;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Wanna be my Valentine? ❤️</h1>
+    <div class="buttons" id="buttons">
+        <button id="yes" onclick="showImage()">YES</button>
+        <button id="no" onclick="growYes()">NO</button>
+    </div>
+    <img id="image" src="https://i.ibb.co/VY4py4Tn/9d7e1b4fdf42ecdb808725d8de352c15.jpg" alt="Romantic Image">
+
+    <script>
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        let title = document.getElementById("title");
+        let buttons = document.getElementById("buttons");
+        let image = document.getElementById("image");
+        let scale = 1;
+
+        function growYes() {
+            scale += 0.2;
+            yesButton.style.transform = `scale(${scale})`;
+        }
+
+        function showImage() {
+            title.classList.add("hidden");
+            buttons.classList.add("hidden");
+            image.style.display = "block";
+        }
+    </script>
+</body>
+</html>
